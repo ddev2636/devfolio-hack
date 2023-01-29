@@ -47,33 +47,79 @@ const Buy = () => {
 
   return (
     <>
-      <div>
+      <div className="buy-main">
         {/* <button onClick={buyItem}>Click</button> */}
+
         <Stack
           spacing={2}
           direction="row"
           sx={{ display: "flex", justifyContent: "center" }}
         >
           {/* <Button variant="contained" onClick={()=>setCategories('')}>All</Button> */}
-          <Button variant="contained" onClick={() => setCategories("All")}>
+          <Button
+            variant="contained"
+            onClick={() => setCategories("All")}
+            sx={{
+              backgroundColor: "#1F78D1",
+              "&:hover": { backgroundColor: "#8222f8" },
+              "&:focus": { backgroundColor: "#0000b3" },
+            }}
+          >
             All
           </Button>
           <Button
             variant="contained"
             onClick={() => setCategories("Electronics")}
+            sx={{
+              backgroundColor: "#1F78D1",
+              "&:hover": { backgroundColor: "#8222f8" },
+              "&:focus": { backgroundColor: "#0000b3" },
+            }}
           >
             Electronics
           </Button>
-          <Button variant="contained" onClick={() => setCategories("Books")}>
+          <Button
+            variant="contained"
+            onClick={() => setCategories("Books")}
+            sx={{
+              backgroundColor: "#1F78D1",
+              "&:hover": { backgroundColor: "#8222f8" },
+              "&:focus": { backgroundColor: "#0000b3" },
+            }}
+          >
             Books
           </Button>
-          <Button variant="contained" onClick={() => setCategories("Utensils")}>
+          <Button
+            variant="contained"
+            onClick={() => setCategories("Utensils")}
+            sx={{
+              backgroundColor: "#1F78D1",
+              "&:hover": { backgroundColor: "#8222f8" },
+              "&:focus": { backgroundColor: "#0000b3" },
+            }}
+          >
             Utensils
           </Button>
-          <Button variant="contained" onClick={() => setCategories("Cycles")}>
+          <Button
+            variant="contained"
+            onClick={() => setCategories("Cycles")}
+            sx={{
+              backgroundColor: "#1F78D1",
+              "&:hover": { backgroundColor: "#8222f8" },
+              "&:focus": { backgroundColor: "#0000b3" },
+            }}
+          >
             Cycles
           </Button>
-          <Button variant="contained" onClick={() => setCategories("Others")}>
+          <Button
+            variant="contained"
+            onClick={() => setCategories("Others")}
+            sx={{
+              backgroundColor: "#1F78D1",
+              "&:hover": { backgroundColor: "#8222f8" },
+              "&:focus": { backgroundColor: "#0000b3" },
+            }}
+          >
             Others
           </Button>
         </Stack>
@@ -103,7 +149,7 @@ const Buy = () => {
                         <AiOutlineShoppingCart />
                       </button>
                     </div>
-                    <p className="item-price">{items.price}</p>
+                    <p className="item-price">₹ {items.price}</p>
                     <div className="last-div">
                       <p>{items.desc}</p>
                       <p>{items.category}</p>
@@ -127,11 +173,13 @@ const Buy = () => {
                             />
                           </div>
                           <div className="modal-item2">
-                            <h4>{modalData.name}</h4>
+                            <h3 style={{ marginTop: "1rem" }}>
+                              {modalData.name}
+                            </h3>
                             <h4>
                               Price:{" "}
                               <span className="item-price2">
-                                {modalData.price}
+                                ₹ {modalData.price}
                               </span>
                             </h4>
                             <h4>
@@ -184,8 +232,7 @@ const Buy = () => {
                                   className="add-wish"
                                   onClick={() => handleWish(modalData)}
                                 >
-                                  WishList
-                                  <AiFillHeart className="heart" />
+                                  WishList <AiFillHeart className="heart" />
                                 </button>
                               </div>
                             </div>
@@ -235,7 +282,7 @@ const Buy = () => {
                           <AiOutlineShoppingCart />
                         </button>
                       </div>
-                      <p className="item-price">{items.price}</p>
+                      <p className="item-price">₹ {items.price}</p>
                       <div className="last-div">
                         <p>{items.desc}</p>
                         <p>{items.category}</p>
@@ -251,6 +298,7 @@ const Buy = () => {
                         >
                           <AiOutlineCloseCircle className="internal" />
                         </button>
+                        <div className="alert-alert">{alert}</div>
                         {modalData ? (
                           <div className="modal-container">
                             <div className="modal-item1">
@@ -265,7 +313,7 @@ const Buy = () => {
                               <h4>
                                 Price:{" "}
                                 <span className="item-price2">
-                                  {modalData.price}
+                                  ₹ {modalData.price}
                                 </span>
                               </h4>
                               <h4>
@@ -304,18 +352,25 @@ const Buy = () => {
                                   </a>
                                 </span>
                               </h4>
-                              <button
-                                className="add-cart"
-                                onClick={() => handleCart(modalData)}
-                              >
-                                Add To Cart <AiOutlineShoppingCart />
-                              </button>
-                              <button
-                                className="add-wish"
-                                onClick={() => handleWish(modalData)}
-                              >
-                                <AiFillHeart />
-                              </button>
+                              <div className="btn-container">
+                                <div>
+                                  <button
+                                    className="add-cart"
+                                    onClick={() => handleCart(modalData)}
+                                  >
+                                    Add To Cart <AiOutlineShoppingCart />
+                                  </button>
+                                </div>
+                                <div className="btner">
+                                  <button
+                                    className="add-wish"
+                                    onClick={() => handleWish(modalData)}
+                                  >
+                                    WishList
+                                    <AiFillHeart className="heart" />
+                                  </button>
+                                </div>
+                              </div>
 
                               <div
                                 className={
