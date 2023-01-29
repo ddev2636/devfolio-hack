@@ -11,6 +11,7 @@ import { fileURLToPath } from "url";
 //importing middlewares
 import notFoundMiddlware from "./middleware/notFound.js";
 import errorHandlerMiddleware from "./middleware/error-handler.js";
+import stripeRouter from "./Routes/stripeRoutes.js";
 
 //routes
 import authRouter from "./Routes/authRoutes.js";
@@ -64,6 +65,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/item", thingRouter);
+app.use("/api/v1/stripe", stripeRouter);
 
 app.use(notFoundMiddlware);
 app.use(errorHandlerMiddleware);
